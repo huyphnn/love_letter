@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư tình từ anh ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background particles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.4) 0%, transparent 50%);
+            animation: moveBackground 25s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes moveBackground {
+
+            0%,
+            100% {
+                transform: translateX(0) translateY(0) rotate(0deg);
+            }
+
+            25% {
+                transform: translateX(-30px) translateY(-15px) rotate(1deg);
+            }
+
+            50% {
+                transform: translateX(30px) translateY(15px) rotate(-1deg);
+            }
+
+            75% {
+                transform: translateX(-15px) translateY(30px) rotate(0.5deg);
+            }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            animation: floatUp 15s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .letter-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(25px);
+            border-radius: 28px;
+            box-shadow:
+                0 40px 80px rgba(0, 0, 0, 0.12),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 1.5s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(80px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .letter-header {
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .letter-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: headerShimmer 8s ease-in-out infinite;
+        }
+
+        @keyframes headerShimmer {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .letter-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: titleFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes titleFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .letter-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .letter-content {
+            padding: 60px 50px;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .photo-gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-gallery:hover::before {
+            opacity: 1;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .photo-item:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.4) 0%, rgba(118, 75, 162, 0.4) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .photo-item:hover::before {
+            opacity: 1;
+        }
+
+        .photo-item::after {
+            content: '✨';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 2;
+        }
+
+        .photo-item:hover::after {
+            opacity: 1;
+        }
+
+        .text-content {
+            line-height: 1.9;
+            color: #2d3748;
+            font-size: 1.15rem;
+            font-weight: 400;
+        }
+
+        .text-content p {
+            margin-bottom: 28px;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .text-content p:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .text-content p:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .text-content p:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .text-content p:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .text-content p:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .text-content p:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .text-content p:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .greeting {
+            font-size: 1.2rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 35px;
+            text-align: center;
+            position: relative;
+        }
+
+        .greeting::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+            transform: scaleX(0);
+            animation: underlineGrow 1.2s ease-out 0.8s forwards;
+        }
+
+        @keyframes underlineGrow {
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        /* BEAUTIFUL QUOTE STYLING */
+        .romantic-quote {
+            position: relative;
+            background: linear-gradient(135deg,
+                    rgba(102, 126, 234, 0.08) 0%,
+                    rgba(118, 75, 162, 0.08) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px 50px;
+            margin: 40px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #4a5568;
+            line-height: 1.8;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            box-shadow:
+                0 10px 30px rgba(102, 126, 234, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+        }
+
+        .romantic-quote::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg,
+                    transparent,
+                    rgba(102, 126, 234, 0.05),
+                    transparent);
+            animation: quoteShimmer 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes quoteShimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+
+            50% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+        }
+
+        .romantic-quote .quote-marks {
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            font-weight: 700;
+            color: rgba(102, 126, 234, 0.15);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .romantic-quote .quote-marks.open {
+            top: 10px;
+            left: 20px;
+            transform: rotate(-10deg);
+        }
+
+        .romantic-quote .quote-marks.close {
+            bottom: 10px;
+            right: 20px;
+            transform: rotate(10deg);
+        }
+
+        .romantic-quote .quote-text {
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .romantic-quote .quote-decoration {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            border-radius: 50%;
+            animation: quoteRotate 20s linear infinite;
+        }
+
+        @keyframes quoteRotate {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .romantic-quote .quote-decoration::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 2px solid rgba(118, 75, 162, 0.1);
+            border-radius: 50%;
+            animation: quoteRotate 15s linear infinite reverse;
+        }
+
+        .signature {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg,
+                    rgba(102, 126, 234, 0.03) 0%,
+                    rgba(118, 75, 162, 0.03) 100%);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .signature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg,
+                    rgba(102, 126, 234, 0.05) 0%,
+                    rgba(118, 75, 162, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .signature:hover::before {
+            opacity: 1;
+        }
+
+        .signature-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #667eea;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .signature-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kiss-button {
+            display: block;
+            margin: 50px auto 0;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .kiss-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.6);
+        }
+
+        .kiss-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .kiss-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+
+        .kiss-button:hover::before {
+            width: 350px;
+            height: 350px;
+        }
+
+        .love-emoji {
+            display: inline-block;
+            animation: bounce 2.5s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+
+            .letter-header {
+                padding: 40px 25px;
+            }
+
+            .letter-title {
+                font-size: 2.8rem;
+            }
+
+            .letter-content {
+                padding: 40px 25px;
+            }
+
+            .photo-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .text-content {
+                font-size: 1.05rem;
+            }
+
+            .romantic-quote {
+                padding: 30px 25px;
+                font-size: 1.2rem;
+            }
+
+            .romantic-quote .quote-marks {
+                font-size: 4rem;
+            }
+
+            .greeting {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Sparkle animation */
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            animation: sparkleFloat 4s infinite;
+        }
+
+        @keyframes sparkleFloat {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1) rotate(180deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="floating-hearts"></div>
+
+    <div class="container">
+        <div class="letter-card">
+            <div class="letter-header">
+                <h1 class="letter-title"></h1>
+            </div>
+
+            <div class="letter-content">
+                <div class="text-content">
+                    <p class="greeting">Dear vợ yêu, bức thư này viết vội trong lúc chờ review code!</p>
+
+                    <p>Anh yêu em, yêu em và <span class="highlight">yêu em rất nhiều</span>. Anh từng đọc một câu nói:
+                    </p>
+
+                    <div class="romantic-quote">
+                        <div class="quote-marks open">"</div>
+                        <div class="quote-marks close">"</div>
+                        <div class="quote-decoration"></div>
+                        <div class="quote-text">
+                            Cái may ở đời là được yêu và đôi khi cái may ở đời là bị phụ tình!
+                        </div>
+                    </div>
+
+                    <p>Vậy tính ra cuộc đời của anh cũng may mắn nhỉ <span class="love-emoji">😊</span></p>
+                </div>
+
+                <div class="photo-gallery">
+                    <div class="photo-item">
+                        <img src="https://storage.googleapis.com/heroes-app/giang-39.jpg" alt="Ảnh đẹp của em"
+                            loading="lazy">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://storage.googleapis.com/heroes-app/giang-25.jpg" alt="Ảnh đẹp của em"
+                            loading="lazy">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://storage.googleapis.com/heroes-app/giang-23.jpg" alt="Ảnh đẹp của em"
+                            loading="lazy">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://storage.googleapis.com/heroes-app/giang-27.jpg" alt="Ảnh đẹp của em"
+                            loading="lazy">
+                    </div>
+                </div>
+
+                <div class="text-content">
+                    <p>Anh biết dạo này bọn mình có đôi lúc nghẹt thở, có đôi lúc hết năng lượng, lúc đứa này năng động
+                        thì đứa kia xìu xìu. Nhưng có những lúc tụi mình vẫn là <span class="highlight">perfect
+                            timing</span> hehe. Anh chỉ muốn nói rằng điều đấy là bình thường và hoàn toàn bình thường.
+                    </p>
+
+                    <p>Anh biết bây giờ em còn ở đây, anh có thể yêu thương và ôm em mỗi ngày. Nhưng chẳng biết, khi em
+                        qua Úc. Mọi thứ cần phải cẩn thận và double triple hơn nhiều lần. Kiên nhẫn hơn, cẩn thận hơn.
+                        Vì bây giờ lỡ một câu nói đôi khi hai đứa đánh mất nhau luôn!!</p>
+
+                    <p>Thì tình yêu nó là vậy, chẳng biết được điều gì, lúc lên lúc xuống, ngang lúc dọc vậy đó. Quá
+                        trình yêu em, anh cảm thấy như anh đang đọc 12 điều ở cuốn <span class="highlight">Đắc Nhân
+                            Tâm</span> vậy, nhưng mà thôi như vậy cũng xứng đáng em nhỉ hihi.</p>
+
+                    <p>Chỉ mong khi em thức dậy, em thấy bức thư vội này và cho anh gửi một lời xin lỗi kèm một cái hôn
+                        má nhé!</p>
+                </div>
+
+                <button class="kiss-button" onclick="sendKiss()">
+                    Send kisses 💋
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tạo trái tim bay
+        function createHeart() {
+            const hearts = ['💜', '💙', '🤍', '💖', '✨', '🌟', '💫'];
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 5 + 10) + 's';
+            heart.style.fontSize = (Math.random() * 10 + 14) + 'px';
+            document.querySelector('.floating-hearts').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 15000);
+        }
+
+        // Tạo trái tim mỗi 4 giây
+        setInterval(createHeart, 4000);
+
+        // Tạo sparkle effects
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 4000);
+        }
+
+        // Thêm sparkle khi hover vào ảnh
+        document.querySelectorAll('.photo-item').forEach(item => {
+            item.addEventListener('mouseenter', (e) => {
+                const rect = e.target.getBoundingClientRect();
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => {
+                        createSparkle(
+                            rect.left + Math.random() * rect.width,
+                            rect.top + Math.random() * rect.height
+                        );
+                    }, i * 120);
+                }
+            });
+        });
+
+        // Thêm sparkle khi hover vào quote
+        document.querySelector('.romantic-quote').addEventListener('mouseenter', (e) => {
+            const rect = e.target.getBoundingClientRect();
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    createSparkle(
+                        rect.left + Math.random() * rect.width,
+                        rect.top + Math.random() * rect.height
+                    );
+                }, i * 150);
+            }
+        });
+
+        // Xử lý nút hôn
+        function sendKiss() {
+            const button = document.querySelector('.kiss-button');
+            button.innerHTML = 'Love youu 😘💕';
+            button.style.background = 'linear-gradient(135deg, #ff4757 0%, #ff6b7a 100%)';
+
+            // Tạo hiệu ứng pháo hoa trái tim
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    createFloatingHeart();
+                }, i * 60);
+            }
+
+            setTimeout(() => {
+                button.innerHTML = 'Gửi thêm nụ hôn nữa đi! 💋';
+                button.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            }, 5000);
+        }
+
+        function createFloatingHeart() {
+            const hearts = ['💜', '💙', '🤍', '💖', '✨', '🌟', '💫', '💕', '💗'];
+            const heart = document.createElement('div');
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.position = 'fixed';
+            heart.style.left = '50%';
+            heart.style.top = '50%';
+            heart.style.fontSize = (Math.random() * 25 + 25) + 'px';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '1000';
+            heart.style.animation = 'heartExplode 4s ease-out forwards';
+
+            const randomX = (Math.random() - 0.5) * 500;
+            const randomY = (Math.random() - 0.5) * 500;
+
+            heart.style.setProperty('--randomX', randomX + 'px');
+            heart.style.setProperty('--randomY', randomY + 'px');
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        // CSS cho hiệu ứng pháo hoa trái tim
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes heartExplode {
+                0% {
+                    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+                    opacity: 1;
+                }
+                20% {
+                    transform: translate(-50%, -50%) scale(1.2) rotate(90deg);
+                    opacity: 1;
+                }
+                80% {
+                    transform: translate(calc(-50% + var(--randomX)), calc(-50% + var(--randomY))) scale(1) rotate(270deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(calc(-50% + var(--randomX)), calc(-50% + var(--randomY))) scale(0) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
